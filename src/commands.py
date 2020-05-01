@@ -69,14 +69,22 @@ class CommandsRegister:
 		error_command = 0
 		max_error = 0
 		for command in self.commands:
-			for alias in command.aliases:
+			if not command.aliases:
 				max_error += 1
-				if command_name == command.command or command_name == alias:
+				if command_name == command.command:
 					if not args:
 						command.on_command()
 					else:
 						command.on_command(args)
-				else:
-					error_command += 1
+			else:
+				for alias in command.aliases:
+					max_error += 1
+					if command_name == command.command or command_name == alias:
+						if not args:
+							command.on_command()
+						else:
+							command.on_command(args)
+					else:
+						error_command += 1
 		if error_command == max_error:
 			print(f"\033[91m[ERROR] {command_name} is an invalid command")
