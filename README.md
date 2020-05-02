@@ -7,8 +7,10 @@ You can contribute to the code by doing something that is in the TODO file and/o
 
 # Install
 Follow this steps to install **NConsole** on your machine:
+
 **Windows**
 ``python -m pip install nconsole``
+
 **Linux/OSX**
 ``python3 -m pip install nconsole``
 
