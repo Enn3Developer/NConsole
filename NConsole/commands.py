@@ -1,7 +1,6 @@
-from console import ConsoleLogType
+from NConsole.console import ConsoleLogType
 from os import path
 import json
-import os.path
 
 # Overriden by a class that handle a command
 class Command:
