@@ -9,7 +9,7 @@ setup(
     author = "Enn3DevPlayer",
     author_email = "arturpeshko39@gmail.com",
     url = "https://github.com/Enn3Developer/NConsole",
-    download_url = "",
+    download_url = "https://github.com/Enn3Developer/NConsole/archive/1.0.tar.gz",
     keywords = ["console", "commands"],
     install_requires = [],
     classifiers = [
