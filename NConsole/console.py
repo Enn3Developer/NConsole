@@ -14,12 +14,13 @@ class Console:
 
 	# Update itself, you have to call it in a while True:
 	def update(self):
-		input_updated = input(self.input_prefix)
-		self.commands_register.check_input(input_updated)
+		input_updated = input(self.input_prefix)  # Take input from user
+		self.commands_register.check_input(input_updated)  # and pass it to the CommandsRegister
 
 	# Use this instead of print()
 	def log(self, type_log: ConsoleLogType, *args):
 		message = ""
+		# Check the message type
 		if type_log == ConsoleLogType.INFO:
 			message = "\033[92m[INFO] "
 		elif type_log == ConsoleLogType.WARN:
@@ -27,5 +28,6 @@ class Console:
 		else:
 			message = "\033[91m[ERROR] "
 		for arg in args:
+			# Add arguments to the message to be printed
 			message = f"{message}{arg}"
 		print(message)
