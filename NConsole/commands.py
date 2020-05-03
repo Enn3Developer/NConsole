@@ -24,9 +24,14 @@ class Command:
 			json.dump(self.vars_to_save, file_json, indent=4)
 			file_json.close()
 	
-	# You have to override this and get savings from the file
+	# Get data from file and save it to the right variables
 	def get_savings(self):
-		pass
+		if self.vars_to_save:
+			file_json = open(f"{self.command}.json", "r")
+			data = json.load(file_json)  # Load data from the file
+			file_json.close()
+			for key in self.vars_to_save.keys():  # Iterate over all names of the vars that as been saved
+				setattr(self, key, data[key])  # and set their value
 
 	# You have to override this, here you handle your commands
 	# ATTENTION: the first statement has to be args = args[0] or else it will be bugged
